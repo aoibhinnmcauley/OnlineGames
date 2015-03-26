@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project name="sample">
+
+
+
+<target name="server">
+						
+			<path id="jsch.path">
+				<pathelement location="lib/ant-jsch.jar" />
+				<pathelement location="lib/jsch-0.1.51.jar" />
+			</path>
+			
+			<taskdef name="scp" classname="org.apache.tools.ant.taskdefs.optional.ssh.Scp" classpathref="jsch.path" />
+			
+						<scp todir="ubuntu@52.10.48.120:/home/ubuntu/"
+						trust="true"
+							keyfile="aoibhinn.pem"
+							passphrase="">
+			
+			<fileset dir="starter"/>
+
+		</scp>
+			
+<!-- so the latest files are taken next time --> 
+		<delete file = "twiz.tar"/> 
+
+			<taskdef name="sshexec" classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" classpathref="jsch.path" />
+						
+			<sshexec host="52.10.48.120"
+								username="ubuntu"
+								trust="true"
+								keyfile="aoibhinn.pem"
+								passphrase=""
+				command="sudo python3 server.py" 
+				
+
+			/>
+
+			
+		</target>
+
+</project>
