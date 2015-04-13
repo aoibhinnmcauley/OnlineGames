@@ -1,0 +1,13 @@
+List of commands used for Lab 7
+
+-Get request: curl -i -u aoibhinnmcauley https://api.github.com/user
+
+-Get repo list:curl -i -u aoibhinnmcauley https://api.github.com/user/repo
+
+-POST new email: --user "aoibhinnmcauley" --data '["c00146854@itcarlow.ie"]' https://api.github.com/user/emails
+
+-Add a comment to a commit: $ curl --user "aoibhinnmcauley" --data '{"body":"TEST API"}' https:
+//api.github.com/repos/aoibhinnmcauley/Finished-Project/commits/3eb27775efa0f25413f3ca002196094e3e9987f8/comments
+
+
+
